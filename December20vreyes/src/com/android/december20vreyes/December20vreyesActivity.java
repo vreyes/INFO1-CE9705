@@ -1,6 +1,8 @@
 package com.android.december20vreyes;
 
 import android.app.Activity;
+import android.content.Intent;
+import android.R;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 
@@ -16,11 +18,20 @@ public class December20vreyesActivity extends Activity {
         setListAdapter(adapter);
         
         @Override
-        protected void onListItemClick (ListView 1, View v, int position, long id) {
+        protected void onListItemClick (ListView 1, View v, int position, long id) 
+        
+        {
         	super.onListItemClick (1, v, position, id);
+           	Intent i = new Intent(this, ReminderEditActivity.class);
+           	i.putExtra("RowId", id);
+           	startActivity(i);
+        }
+       
+        	
         	
         	registerForContextMenu(getListView());
-       
+          	
+           	
         	@Override
         	public void onCreateContextMenu (ContextMenu menu, View v, ContextMenuInfo menuInfo) {
         		super.onCreateContextMenu(menu, v, menuInfo);
